@@ -71,11 +71,7 @@ class WebhookTarget(TimeStampedModel):
                 max_length=255, choices=CONTENT_TYPE_CHOICES, default=CONTENT_TYPE_JSON)
 
     def __str__(self):
-        return "{}:{}:{}".format(
-            self.event,
-            self.target_url[:30],
-            self.identifier
-        )
+        return f"{self.event}:{self.target_url[:30]}:{self.identifier}"
 
     class Meta:
         ordering = ["-modified"]
@@ -104,11 +100,7 @@ class Delivery(TimeStampedModel):
     # TODO - add rest of recorded header infos
 
     def __str__(self):
-        return "{}=>{}=>{}".format(
-            self.success,
-            self.created,
-            self.webhook_target
-        )
+        return f"{self.success}=>{self.created}=>{self.webhook_target}"
 
     class Meta:
         ordering = ["-created"]
