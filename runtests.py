@@ -54,9 +54,7 @@ def run_tests(*test_args):
     # Run tests
     test_runner = NoseTestSuiteRunner(verbosity=1)
 
-    failures = test_runner.run_tests(test_args)
-
-    if failures:
+    if failures := test_runner.run_tests(test_args):
         sys.exit(failures)
 
 

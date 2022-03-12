@@ -32,7 +32,7 @@ redis = StrictRedis(
 
 
 def make_key(event, owner_name, identifier):
-    return "{}:{}:{}".format(event, owner_name, identifier)
+    return f"{event}:{owner_name}:{identifier}"
 
 
 class RedisLogSenderable(Senderable):
